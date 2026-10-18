@@ -1,0 +1,65 @@
+===== s2_clean =====
+清洗完成: 174 个文件（12 进程）, 共删 175806 行
+重复文件: 0, 过短剔除: 0, 排除: 1
+输出: /home/moonsoon/Documents/novel lora/work/02_clean
+
+各规则命中排行:
+    386793  ad:bracket-block
+    234356  inline:union
+    181268  guard:chapter_header
+    110415  ad:^[-=*_~─━•·…．.\s]{5,}$
+     33291  toxic-line
+     15626  cipher:‘([一-鿿])’->\1
+     13026  ad:[(（]未完待续[^）)]{0,80}[)）]
+      9071  rule:low_info_line
+      8536  cipher:(?<![子诗书易经云名])曰->日
+      8362  inline:header-safe
+      8163  entity:numeric-decoded
+      5241  ad:(?i:^ps[：:].{0,200}$)
+      4355  domain:spaced/fullwidth
+      3860  ad:^(文学|武侠|言情|书库|网游|科幻|灵异|玄幻|仙侠|都市|历史|军事|竞技|游戏|动漫|同人|完本|悬疑|惊悚){2,}$
+      3611  ad:^[（(]?(本章完|未完待续|待续|本章终|全书完|全文完|完本)[。，,！!?？]?[）)]?$
+      3352  ctrl:bidi/zero-width
+      3345  drop:ad-dominant
+      3017  toxic:ad:无广告
+      1857  toxic:ad:更新时间：
+      1625  ad:Copyright|ICP备案号|执行时间[:：]|文网文
+      1453  toxic:ad:求月票
+      1452  cipher:孔煊->王煊
+      1382  toxic:ad:喜欢末日进化乐园请大家收藏
+      1380  cipher:自勺->的
+      1326  ad:(?i:[.。．](com|net|cc|org|cn|me|io|xyz|top|vip|la|co)(?![a-z0-9]))
+      1297  toxic:ad:请记住本书首发域名
+      1211  toxic:ad:投推荐票、月票
+      1118  toxic:ad:提示推荐阅读
+      1080  cipher:修土->修士
+       864  toxic:ad:本站地址
+===== s3_split_chapters =====
+切分完成: 161 本书, 158466 章, 共 484,132,744 字
+分卷合并去重跳过: 21720 章
+输出: /home/moonsoon/Documents/novel lora/work/03_chapters
+
+异常书籍 1 本（章节<10 或 >5000 或总字<2万）:
+  - 0/不冷/神魔练兵场: 2章 2454537字
+===== s5_build_dataset =====
+# 数据集统计
+- 入选书籍: 133（因无有效 chunk 丢弃 0）
+- 跨书重复剔除: 2001 章 / 7,084,159 字
+- 其中整本拷贝剔除 2 本: z1 (1745/1757 章)；a13 (243/244 章)
+- train chunks: 99270
+- valid chunks: 2846（3 本书, 10,556,357 字）
+- 总字数: 416,261,684
+
+## 题材分布（按书，取首个 genre）
+- 末世: 33
+- 玄幻: 33
+- 都市: 15
+- 修真: 14
+- 无限流: 13
+- 科幻: 12
+- 悬疑灵异: 6
+- 西幻: 4
+- 游戏: 2
+- 克苏鲁: 1
+
+输出: /home/moonsoon/Documents/novel lora/work/05_dataset

@@ -1,0 +1,61 @@
+===== s2_clean =====
+清洗完成: 174 个文件（12 进程）, 共删 175101 行
+重复文件: 0, 过短剔除: 0, 排除: 1
+输出: /home/moonsoon/Documents/novel lora/work/02_clean
+
+各规则命中排行:
+    232746  inline:union
+    181268  guard:chapter_header
+    110415  ad:^[-=*_~─━•·…．.\s]{5,}$
+     43179  toxic-line
+     13024  ad:[(（]未完待续[^）)]{0,80}[)）]
+      9742  toxic:ad:138看书
+      9283  rule:low_info_line
+      8536  cipher:(?<![子诗书易经云名])曰->日
+      8163  entity:numeric-decoded
+      7746  inline:header-safe
+      6836  domain:spaced/fullwidth
+      3860  ad:^(文学|武侠|言情|书库|网游|科幻|灵异|玄幻|仙侠|都市|历史|军事|竞技|游戏|动漫|同人|完本|悬疑|惊悚){2,}$
+      3611  ad:^[（(]?(本章完|未完待续|待续|本章终|全书完|全文完|完本)[。，,！!?？]?[）)]?$
+      3352  ctrl:bidi/zero-width
+      3266  drop:ad-dominant
+      2995  toxic:ad:无广告
+      1857  toxic:ad:更新时间：
+      1625  ad:Copyright|ICP备案号|执行时间[:：]|文网文
+      1453  toxic:ad:求月票
+      1452  cipher:孔煊->王煊
+      1382  toxic:ad:喜欢末日进化乐园请大家收藏
+      1380  cipher:自勺->的
+      1342  ad:(?i:[.。．](com|net|cc|org|cn|me|io|xyz|top|vip|la|co)(?![a-z0-9]))
+      1297  toxic:ad:请记住本书首发域名
+      1213  toxic:ad:投推荐票、月票
+      1118  toxic:ad:提示推荐阅读
+      1080  cipher:修土->修士
+       864  toxic:ad:本站地址
+       825  toxic:ad:无弹窗
+       699  toxic:ad:最快更新
+===== s3_split_chapters =====
+Traceback (most recent call last):
+  File "/home/moonsoon/Documents/novel lora/scripts/s3_split_chapters.py", line 26, in <module>
+    RE_BOOK_JUNK = re.compile(
+        r"[《》]|[(（\[][^\r\n]{0,12}(校对版|全集|全本|完结|完本|精校|修订|番外|无错)"
+        r"|(?i)txt80|笔趣阁|顶点小说|电子书|下载"
+    )
+  File "/usr/lib/python3.14/re/__init__.py", line 289, in compile
+    return _compile(pattern, flags)
+  File "/usr/lib/python3.14/re/__init__.py", line 350, in _compile
+    p = _compiler.compile(pattern, flags)
+  File "/usr/lib/python3.14/re/_compiler.py", line 762, in compile
+    p = _parser.parse(p, flags)
+  File "/usr/lib/python3.14/re/_parser.py", line 973, in parse
+    p = _parse_sub(source, state, flags & SRE_FLAG_VERBOSE, 0)
+  File "/usr/lib/python3.14/re/_parser.py", line 460, in _parse_sub
+    itemsappend(_parse(source, state, verbose, nested + 1,
+                ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                       not nested and not items))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/re/_parser.py", line 834, in _parse
+    raise source.error('global flags not at the start '
+                       'of the expression',
+                       source.tell() - start)
+re.PatternError: global flags not at the start of the expression at position 54

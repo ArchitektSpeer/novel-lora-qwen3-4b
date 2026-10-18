@@ -1,0 +1,47 @@
+===== s2_clean =====
+concurrent.futures.process._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/concurrent/futures/process.py", line 255, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File "/usr/lib/python3.14/concurrent/futures/process.py", line 204, in _process_chunk
+    return [fn(*args) for args in chunk]
+            ~~^^^^^^^
+  File "/home/moonsoon/Documents/novel lora/scripts/s2_clean.py", line 423, in _process_one
+    cleaned, hits, removed = clean_text(
+                             ~~~~~~~~~~^
+        text, _WORKER["ad"], _WORKER["in"], _WORKER["cipher"], rel_str
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/moonsoon/Documents/novel lora/scripts/s2_clean.py", line 399, in clean_text
+    line = fix_stray_closers(line)
+  File "/home/moonsoon/Documents/novel lora/scripts/s2_clean.py", line 231, in fix_stray_closers
+    if line[-1] == closer and line.count(opener) < line.count(closer):
+       ~~~~^^^^
+IndexError: string index out of range
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/moonsoon/Documents/novel lora/scripts/s2_clean.py", line 486, in <module>
+    main()
+    ~~~~^^
+  File "/home/moonsoon/Documents/novel lora/scripts/s2_clean.py", line 451, in main
+    results = list(pool.map(_process_one, todo, chunksize=1))
+  File "/usr/lib/python3.14/concurrent/futures/process.py", line 713, in _chain_from_iterable_of_lists
+    for element in iterable:
+                   ^^^^^^^^
+  File "/usr/lib/python3.14/concurrent/futures/_base.py", line 645, in result_iterator
+    yield _result_or_cancel(fs.pop())
+          ~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/usr/lib/python3.14/concurrent/futures/_base.py", line 312, in _result_or_cancel
+    return fut.result(timeout)
+           ~~~~~~~~~~^^^^^^^^^
+  File "/usr/lib/python3.14/concurrent/futures/_base.py", line 447, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.14/concurrent/futures/_base.py", line 396, in __get_result
+    raise self._exception
+IndexError: string index out of range

@@ -1,0 +1,6 @@
+batch1.txt: 12 chunks
+batch2.txt: 12 chunks
+batch3.txt: 12 chunks
+batch4.txt: 12 chunks
+batch5.txt: 12 chunks
+共 60 chunks / 5 批

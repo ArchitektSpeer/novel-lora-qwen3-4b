@@ -1,0 +1,37 @@
+===== s2_clean =====
+清洗完成: 174 个文件（12 进程）, 共删 184737 行
+重复文件: 0, 过短剔除: 0, 排除: 1
+输出: /home/moonsoon/Documents/novel lora/work/02_clean
+
+各规则命中排行:
+    386793  ad:bracket-block
+    243707  inline:union
+    181268  guard:chapter_header
+    110415  ad:^[-=*_~─━•·…．.\s]{5,}$
+     87641  punct:halfwidth->fullwidth
+     33291  toxic-line
+     15626  cipher:‘([一-鿿])’->\1
+     13169  inline:header-safe
+     13026  ad:[(（]未完待续[^）)]{0,80}[)）]
+     10180  title:space-after-chapter
+      8852  rule:low_info_line
+      8536  cipher:(?<![子诗书易经云名])曰->日
+      8163  entity:numeric-decoded
+      5669  ad:^[-*=~─━•·．._\s]{1,4}$
+      5241  ad:(?i:^ps[：:].{0,200}$)
+      4355  domain:spaced/fullwidth
+      3860  ad:^(文学|武侠|言情|书库|网游|科幻|灵异|玄幻|仙侠|都市|历史|军事|竞技|游戏|动漫|同人|完本|悬疑|惊悚){2,}$
+      3703  drop:ad-dominant
+      3611  ad:^[（(]?(本章完|未完待续|待续|本章终|全书完|全文完|完本)[。，,！!?？]?[）)]?$
+      3352  ctrl:bidi/zero-width
+      3017  toxic:ad:无广告
+      2631  ad:^[―﹘‒–—]{2,}$
+      2245  punct:clash->single
+      1857  toxic:ad:更新时间：
+      1625  ad:Copyright|ICP备案号|执行时间[:：]|文网文
+      1453  toxic:ad:求月票
+      1452  cipher:孔煊->王煊
+      1382  toxic:ad:喜欢末日进化乐园请大家收藏
+      1380  cipher:自勺->的
+      1326  ad:(?i:[.。．](com|net|cc|org|cn|me|io|xyz|top|vip|la|co)(?![a-z0-9]))
+===== s3_split_chapters =====

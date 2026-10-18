@@ -1,0 +1,23 @@
+# 训练/评估数据集（有版权语料，不入库）
+*.jsonl
+work/06_sft/
+work/reports/spotcheck*/
+0/
+1/
+work/0[1-4]_*/
+
+# 大文件：基座、权重、检查点、环境
+models/
+venv-train/
+*.safetensors
+work/07_train/*/checkpoint-*/
+__pycache__/
+*.tar.gz
+
+# 训练脚本与配置（不公开）
+configs/
+docs/TRAIN.md
+scripts/t1_build_continue.py
+scripts/t2_build_proofread.py
+scripts/t3_mix_datasets.py
+scripts/run_eval_after_train.sh

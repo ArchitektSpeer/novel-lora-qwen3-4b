@@ -1,0 +1,27 @@
+===== s3_split_chapters =====
+切分完成: 161 本书, 158474 章, 共 484,196,534 字
+分卷合并去重跳过: 21707 章
+输出: /home/moonsoon/Documents/novel lora/work/03_chapters
+
+异常书籍 1 本（章节<10 或 >5000 或总字<2万）:
+  - 0/不冷/神魔练兵场: 2章 2462800字
+===== s5_build_dataset =====
+# 数据集统计
+- 入选书籍: 135（因无有效 chunk 丢弃 0）
+- train chunks: 100489
+- valid chunks: 724（1 本书）
+- 总字数: 423,209,051
+
+## 题材分布（按书，取首个 genre）
+- 玄幻: 35
+- 末世: 33
+- 都市: 15
+- 修真: 14
+- 无限流: 13
+- 科幻: 12
+- 悬疑灵异: 6
+- 西幻: 4
+- 游戏: 2
+- 克苏鲁: 1
+
+输出: /home/moonsoon/Documents/novel lora/work/05_dataset
